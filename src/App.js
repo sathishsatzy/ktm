@@ -1,35 +1,27 @@
-import './App.css';
+import "./App.css";
 import React from "react";
-
-
-function Time(props){
-  return <label>{props.date_time}</label>
-};
+import EmpTable from "./EmployeeTable";
+import EmpForm from "./EmployeeForm";
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
-    this.state =  {dateAndTime :new Date().toString()};
-    this.showDT = this.showDT.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {tabledata : []};
   }
 
-  showDT() {
-    this.setState({ dateAndTime: new Date().toString()});
+  updateEmpTable=(tData)=>{
+    console.log("table data from form ",tData)
+    this.setState({tabledata:[...this.state.tabledata, tData]});
   }
-  render(){
-    return(
-      <div className="App">
-        <div className="App-header">
-        <h1>Welcome Sathish</h1>
-        <button onClick={this.showDT}>show date</button>
-        <br/>
-        <Time date_time={this.state.dateAndTime}/>
+
+  render() {
+    return (
+      <div className="container-fluid">
+        <EmpTable TableData = {this.state.tabledata}/>
+        <EmpForm updateEmpTable = {this.updateEmpTable}/>
       </div>
-      </div>
-    )
+    );
   }
 }
-
-
 
 export default App;
