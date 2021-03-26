@@ -4,10 +4,8 @@ function EmpTable(props) {
   const [tableData, settableData] = useState([]);
 
   useEffect(() => {
-    console.log("1",props.TableData, tableData)
       if(JSON.stringify(props.TableData) !== JSON.stringify(tableData)){
         settableData(props.TableData);
-        console.log("2")
       }
     
   }, [props.TableData]);
