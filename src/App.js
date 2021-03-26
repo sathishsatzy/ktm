@@ -35,6 +35,7 @@ class App extends React.Component {
                   Contact
                 </Link>
               </li>
+              <a href="http://localhost:3000/contact" target={"_blank"}>Visit W3Schools.com!</a>
             </ul>
           </div>
         </nav>
